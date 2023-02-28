@@ -20,8 +20,9 @@ public class Utils {
     public void printResult(){
         System.out.println(n + " Итерация");
         System.out.print("Вектора неизвестных ");
+        int a=2;
         for (int i=0; i<cur_x.length; i++) {
-            System.out.printf("x%d(%d)=%5.4f ", i+1, n, cur_x[i]);
+            System.out.printf("x%d(%d)=%5.20f ", i+1, n, cur_x[i]);
         }
 
         if(n!=0) {System.out.println(); System.out.print("Вектора погрешностей ");}
@@ -52,8 +53,6 @@ public class Utils {
             xAccuracy[i]=Math.abs(k-cur_x[i]);
             cur_accuracy = Math.max(cur_accuracy, ((Math.max(Math.abs(k), Math.abs(cur_x[i]))/Math.min(Math.abs(k), Math.abs(cur_x[i])))-1));
         }
-
-
     }
 
     void first_approx(float[][] matrix){

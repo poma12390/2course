@@ -9,6 +9,9 @@ public class Main {
     static float[][] array;
 
     static Scanner sc;
+
+    static int znak;
+
     static int array_size;
     static float accuracy;
 
@@ -23,10 +26,25 @@ public class Main {
 
     private static void inputFromKeyboard(){
         System.out.print("Введите количество уравнений в матрице: ");
-        array_size = sc.nextInt();
-        input_array();
+        try {
+            array_size = sc.nextInt();
+        }catch (Exception e){
+            System.out.println("Введено не число ");
+        }
+        try {
+            input_array();
+        }catch (Exception e){
+            System.out.println("Некорректный массив");
+        }
+
         System.out.print("Введите точность(раздилитель запятая): ");
-        accuracy= sc.nextFloat();
+        try {
+            accuracy = sc.nextFloat();
+            znak= (int) Math.ceil(-1*Math.log10(accuracy));
+            System.out.println(znak);
+        }catch (Exception e){
+            System.out.println("Введено не число");
+        }
     }
 
     private static void inputFromFile(){
@@ -52,6 +70,7 @@ public class Main {
             }
         }catch (FileNotFoundException e){
             System.out.println("Файл не найден");
+            System.exit(1);
         }
         catch (IOException e) {
             System.out.println("Проблемы с файлом");
