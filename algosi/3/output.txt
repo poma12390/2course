@@ -1,4 +1,12 @@
-yes
-no
-no
-yes
+a=b string 
+a=0
+var=b string 
+var=123
+c=b string 
+c=-34
+d=b string 
+d=1000000000
+a=b string 
+a=1000000000
+e=var string 
+e=123
