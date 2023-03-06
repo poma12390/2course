@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 #include <vector>
 #include <sstream>
@@ -20,6 +20,7 @@ bool isNumber(const std::string& s) {
     return true;
 }
 
+<<<<<<< HEAD
 map <string, vector<int>> push_all(map <string, vector<int>> m){
     //cout << "pushall" << endl;
     for (auto &i : m){
@@ -32,11 +33,28 @@ map <string, vector<int>> pop_all(map <string, vector<int>> m){
     //cout << "popall" << endl;
     for (auto &i : m){
         i.second.pop_back();
-    }
-    return m;
+=======
+void push_all(vector <vector<string>> &history){
+    //cout << "{" << endl;
+    history.push_back(vector<string>{});
 }
 
+void pop_all(unordered_map <string, vector<int>> &m, vector <vector<string>> &history){
+    vector<string> v = history.back();
+    history.pop_back();
+    for (string s: v){
+        //cout << " pop " << s;
+        m[s].pop_back();
+>>>>>>> 1b5884089373dea9c7cda4b31563d5f5d8c411ce
+    }
+    //cout << "}" << endl;
+}
+
+<<<<<<< HEAD
 map <string, vector<int>> var_to_var(map <string, vector<int>> m, string var_name, string var_name1, map <string, vector<int>> :: iterator it){
+=======
+void var_to_var(unordered_map <string, vector<int>> &m, string &var_name, string &var_name1, unordered_map <string, vector<int>> :: iterator &it, vector <vector<string>> &history){
+>>>>>>> 1b5884089373dea9c7cda4b31563d5f5d8c411ce
     it = m.find(var_name);
     if(it!=m.end()){
         //cout<< var_name << " already= " << it->second[it->second.size()-1] << endl;
@@ -53,20 +71,45 @@ map <string, vector<int>> var_to_var(map <string, vector<int>> m, string var_nam
         //cout << "New var "<< var_name1 << endl;
         m.insert({var_name1, new_vector(0)});
     }
+<<<<<<< HEAD
     cout << var_name << "="<<m.find(var_name1)->second.back() <<endl;
     m.find(var_name)->second.back()=m.find(var_name1)->second.back();
     return m;
 }
 
 map <string, vector<int>> int_to_var(map <string, vector<int>> m, string var_name, int n, map <string, vector<int>> :: iterator it){
+=======
+    //cout<< var_name << " and " << var_name1 << " push" << endl;
+    history.back().push_back(var_name);
+
+    // for(auto a: m){
+    //    for(auto i: a.second){
+    //      cout << a.first << " = " << i;
+    //    }
+    //    cout << endl;
+    // }
+    cout<<m.find(var_name1)->second.back()  << endl;
+    m.find(var_name)->second.push_back(m.find(var_name1)->second.back());
+
+    
+}
+
+void int_to_var(unordered_map <string, vector<int>> &m, string var_name, int n, unordered_map <string, vector<int>> :: iterator &it, vector <vector<string>> &history){
+>>>>>>> 1b5884089373dea9c7cda4b31563d5f5d8c411ce
     it = m.find(var_name);
     if(it==m.end()){
         m.insert({var_name, new_vector(0)});
         //cout << "New var(int_to_var) "<< var_name << endl;
     }
     //cout << var_name<<"=(int)"<<n<<endl;
+<<<<<<< HEAD
     m.find(var_name)->second.back()=n;
     return m;
+=======
+    history.back().push_back(var_name);
+    //cout<< var_name  << " push" << endl;
+    m.find(var_name)->second.push_back(n);
+>>>>>>> 1b5884089373dea9c7cda4b31563d5f5d8c411ce
 }
 
 vector<string> split(string s, string delimiter) {
@@ -89,6 +132,7 @@ int main() {
     freopen("output.txt","w",stdout);
     freopen("input.txt","r",stdin);
     string s;
+<<<<<<< HEAD
     map <string, vector<int>> m;
     map <string, vector<int>> :: iterator it;
     // m.insert({"Poma", new_vector(1147)});
@@ -112,8 +156,32 @@ int main() {
             }else{
                 cout << s << " string " << endl;
                 m=var_to_var(m, v[0], v[1], it);
+=======
+    unordered_map <string, vector<int>> m;
+    unordered_map <string, vector<int>> :: iterator it;
+    vector<string> v;
+    vector <vector<string>> history;
+    history.push_back(vector<string>());
+    while (cin>>s){
+        if (s=="{"){
+            push_all(history);
+        }else if (s=="}")
+        {
+            pop_all(m, history);
+        }
+        else{      
+            v=split(s, "=");
+            if(isNumber(v[1])){
+                int_to_var(m, v[0], stoi(v[1]), it, history);
+            }else{
+                var_to_var(m, v[0], v[1], it, history);
+>>>>>>> 1b5884089373dea9c7cda4b31563d5f5d8c411ce
             }
         }
         
 }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1b5884089373dea9c7cda4b31563d5f5d8c411ce
