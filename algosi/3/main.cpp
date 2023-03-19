@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <unordered_map>
 #include <algorithm>
 #include <vector>
@@ -185,3 +186,22 @@ int main() {
 =======
 }
 >>>>>>> ff21196161afd81706d9d4f6c9070f3a6de2d8bd
+=======
+
+int main() {
+    int a, b, c, d, now;
+    long k;
+    std::cin >> a >> b >> c >> d >> k;
+    for(long i=0; i<k; i++){
+        now=(std::min(a*b-c, d)>0)? std::min(a*b-c, d) : 0;
+        if(now==a || now==d || now==0){
+            std::cout << now;
+            return 0;
+        }else{
+            a=now;
+        }
+    }
+    std::cout<<a;
+    return 0;
+}
+>>>>>>> 0f98e603cac9617a58edd1884399f3a35cc013ce
