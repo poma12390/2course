@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0
 123
 -34
@@ -5,3 +6,17 @@
 1000000000
 123
 -34
+=======
+a=b string 
+a=0
+var=b string 
+var=123
+c=b string 
+c=-34
+d=b string 
+d=1000000000
+a=b string 
+a=1000000000
+e=var string 
+e=123
+>>>>>>> ff21196161afd81706d9d4f6c9070f3a6de2d8bd
