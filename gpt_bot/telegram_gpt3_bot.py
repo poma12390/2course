@@ -4,8 +4,8 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext, Filters
 
 # Replace 'YOUR_API_TOKEN' with the API token you got from the BotFather
-API_TOKEN = '6145516516:AAGZlZfnLYpV5FZR3AWQjvVAXwWQcX8aW6I'
-GPT_API_KEY = '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'
+API_TOKEN = ''
+GPT_API_KEY = ''
 
 openai.api_key = GPT_API_KEY
 
