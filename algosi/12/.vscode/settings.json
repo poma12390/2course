@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "*.tcc": "cpp",
+        "compare": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "algorithm": "cpp",
+        "memory_resource": "cpp",
+        "random": "cpp",
+        "type_traits": "cpp",
+        "initializer_list": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "memory": "cpp",
+        "new": "cpp",
+        "ostream": "cpp"
+    }
+}
