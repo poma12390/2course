@@ -5,77 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="495d50a5-459e-4281-a673-4b08e0fe311e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../VSS/1/assignment-1-pe-file-reader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../algosi/3/.vscode/c_cpp_properties.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../algosi/3/test.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../algosi/3/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../algosi/3/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../algosi/3/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../algosi/3/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../algosi/3/main.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../../algosi/3/main.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../algosi/3/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../algosi/3/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../algosi/3/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../algosi/3/test.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../demo/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../demo/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../demo/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../demo/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/Test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/Test.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/app/app.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/app/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/app/test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/app/test.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/assets/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../untitled1/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ComputationalMathLab2" beforeDir="false" afterPath="$PROJECT_DIR$/../ComputationalMathLab2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,17 +31,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/pomat/Documents/Itmo/2course/witch_math/lab2/lab2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pomat/Documents/Itmo/2course/witch_math/lab2/lab2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -136,6 +66,7 @@
       <updated>1678035790722</updated>
       <workItem from="1678035792084" duration="1873000" />
       <workItem from="1678037686797" duration="6723000" />
+      <workItem from="1682595995026" duration="146000" />
     </task>
     <servers />
   </component>
