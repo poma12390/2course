@@ -111,3 +111,4 @@ while cap.isOpened():
 # Release the camera and close all windows
 cap.release()
 cv2.destroyAllWindows()
+
