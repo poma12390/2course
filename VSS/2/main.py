@@ -38,12 +38,15 @@ def process(frame, start_point, end_point):
     org = end_point
     font = cv2.FONT_HERSHEY_SIMPLEX
     fontScale = 0.7
-    text1 = cv2.putText(rect1, str(red_rate*255) + ' '+ str(green_rate*255)+ ' ' + str(blue_rate*255), [21, 50], font, 0.8, [red_rate*255, green_rate*255, blue_rate*255], 2, cv2.LINE_AA)
-    if blue_rate > 0.9:
+    text1 = cv2.putText(rect1, str(red_rate*255) + ' '+ str(green_rate*255)+ ' ' + str(blue_rate*255), [21, 50], font, 0.8, [blue_rate*255, green_rate*255, red_rate*230], 2, cv2.LINE_AA)
+    if red_rate > 0.9:
+        text = cv2.putText(rect, ' red ', org, font, fontScale, color, thickness, cv2.LINE_AA)
+    elif green_rate>0.9:
+        text = cv2.putText(rect, ' green ', org, font, fontScale, color, thickness, cv2.LINE_AA)
+    elif blue_rate>0.9:
         text = cv2.putText(rect, ' blue ', org, font, fontScale, color, thickness, cv2.LINE_AA)
     else:
-        text = cv2.putText(rect, ' not blue ', org, font, fontScale, color, thickness, cv2.LINE_AA)
-
+        text = cv2.putText(rect, ' rainbow ', org, font, fontScale, color, thickness, cv2.LINE_AA)
     return rect
 
 def mouse_callback(event, x, y, flags, param):
@@ -72,24 +75,6 @@ cv2.namedWindow('Cam')
 cv2.setMouseCallback('Cam', mouse_callback)
 dragging = False
 resizing = False
-
-path = r'color.png'
-# Reading an image in default mode
-image = cv2.imread(path)
-# Window name in which image is displayed
-window_name = 'Image'
-# font
-font = cv2.FONT_HERSHEY_SIMPLEX
-# org
-org = (50, 50)
-# fontScale
-fontScale = 1
-# Blue color in BGR
-color = (255, 0, 0)
-# Line thickness of 2 px
-thickness = 2
-# Using cv2.putText() method
-
 
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
