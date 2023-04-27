@@ -1,6 +1,8 @@
 import cv2
+from keras.models import load_model
 import numpy as np
 
+model = load_model('mnist_cnn_model.h5')
 
 def draw_rectangle(frame, start_point, end_point):
     color = (0, 0, 255)
@@ -12,7 +14,7 @@ def process(frame, start_point, end_point):
     color = (0, 0, 255)
     thickness = 2
     rect = draw_rectangle(frame, start_point, end_point)
-    rect1 = draw_rectangle(frame, [20, 20], [150, 70])
+    rect1 = draw_rectangle(frame, [20, 20], [225, 70])
     hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     h_sensivity = 15
     s_h = 255
@@ -35,10 +37,20 @@ def process(frame, start_point, end_point):
     green_rate=np.count_nonzero(mask_green) / ((end_point[0] - start_point[0]) * (end_point[1] - start_point[1]))
     blue_rate = np.count_nonzero(mask_blue) / ((end_point[0] - start_point[0]) * (end_point[1] - start_point[1]))
 
+    cropped_frame = frame[start_point[1]:end_point[1], start_point[0]:end_point[0]]
+    gray = cv2.cvtColor(cropped_frame, cv2.COLOR_BGR2GRAY)
+    resized = cv2.resize(gray, (28, 28), interpolation=cv2.INTER_AREA)
+    input_data = np.reshape(resized, (1, 28, 28, 1))
+    input_data = input_data.astype('float32') / 255
+    prediction = model.predict(input_data)
+    predicted_class = np.argmax(prediction)
+    cv2.putText(frame, str(predicted_class), (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+
+
     org = end_point
     font = cv2.FONT_HERSHEY_SIMPLEX
     fontScale = 0.7
-    text1 = cv2.putText(rect1, str(round(red_rate*255)) + ' '+ str(round(green_rate*255))+ ' ' + str(round(blue_rate*255)), [21, 50], font, 0.8, [blue_rate*255, green_rate*255, red_rate*230], 2, cv2.LINE_AA)
+    text1 = cv2.putText(rect1, str(red_rate*255) + ' '+ str(green_rate*255)+ ' ' + str(blue_rate*255), [21, 50], font, 0.8, [blue_rate*255, green_rate*255, red_rate*230], 2, cv2.LINE_AA)
     if red_rate > 0.9:
         text = cv2.putText(rect, ' red ', org, font, fontScale, color, thickness, cv2.LINE_AA)
     elif green_rate>0.9:
@@ -47,7 +59,7 @@ def process(frame, start_point, end_point):
         text = cv2.putText(rect, ' blue ', org, font, fontScale, color, thickness, cv2.LINE_AA)
     else:
         text = cv2.putText(rect, ' rainbow ', org, font, fontScale, color, thickness, cv2.LINE_AA)
-    return rect
+    return rect, resized
 
 def mouse_callback(event, x, y, flags, param):
     global start_point, end_point, dragging, resizing
@@ -55,23 +67,24 @@ def mouse_callback(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDOWN:
         dragging = True
         start_point = (x, y)
-        #end_point=(x+1, y+1)
-        end_point = (start_point[0]+100, start_point[1]+100)
+        end_point=(x+1, y+1)
+        #end_point = (start_point[0]+100, start_point[1]+100)
 
     elif event == cv2.EVENT_MOUSEMOVE:
         if dragging:
-            end_point = (start_point[0] + 100, start_point[1] + 100)
-            #end_point = (x + 1, y + 1)
+            #end_point = (start_point[0] + 100, start_point[1] + 100)
+            end_point = (x + 1, y + 1)
     elif event == cv2.EVENT_LBUTTONUP:
         dragging = False
-        end_point = (start_point[0]+100, start_point[1]+100)
-        #end_point = (x + 1, y + 1)
+        #end_point = (start_point[0]+100, start_point[1]+100)
+        end_point = (x + 1, y + 1)
 
 
 # Open Default Camera
 cap = cv2.VideoCapture(0)
 rect_size = 100
 cv2.namedWindow('Cam')
+cv2.namedWindow('Resized')
 cv2.setMouseCallback('Cam', mouse_callback)
 dragging = False
 resizing = False
@@ -85,9 +98,10 @@ while cap.isOpened():
     # Take each Frame
     ret, frame = cap.read()
 
-    processed = process(frame, start_point, end_point)
-    # Show video
+    processed, resized = process(frame, start_point, end_point)
+
     cv2.imshow('Cam', processed)
+    cv2.imshow('Resized', resized)
 
     # Move the rectangle based on arrow keys
     k = cv2.waitKey(1) & 0xFFF
@@ -111,4 +125,3 @@ while cap.isOpened():
 # Release the camera and close all windows
 cap.release()
 cv2.destroyAllWindows()
-
