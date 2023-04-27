@@ -12,7 +12,7 @@ def process(frame, start_point, end_point):
     color = (0, 0, 255)
     thickness = 2
     rect = draw_rectangle(frame, start_point, end_point)
-    rect1 = draw_rectangle(frame, [20, 20], [225, 70])
+    rect1 = draw_rectangle(frame, [20, 20], [150, 70])
     hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     h_sensivity = 15
     s_h = 255
@@ -38,7 +38,7 @@ def process(frame, start_point, end_point):
     org = end_point
     font = cv2.FONT_HERSHEY_SIMPLEX
     fontScale = 0.7
-    text1 = cv2.putText(rect1, str(red_rate*255) + ' '+ str(green_rate*255)+ ' ' + str(blue_rate*255), [21, 50], font, 0.8, [blue_rate*255, green_rate*255, red_rate*230], 2, cv2.LINE_AA)
+    text1 = cv2.putText(rect1, str(round(red_rate*255)) + ' '+ str(round(green_rate*255))+ ' ' + str(round(blue_rate*255)), [21, 50], font, 0.8, [blue_rate*255, green_rate*255, red_rate*230], 2, cv2.LINE_AA)
     if red_rate > 0.9:
         text = cv2.putText(rect, ' red ', org, font, fontScale, color, thickness, cv2.LINE_AA)
     elif green_rate>0.9:
