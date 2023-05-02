@@ -7,3 +7,15 @@
 [submodule "VSS/lab1"]
 	path = VSS/lab1
 	url = https://github.com/poma12390/C-pe-file-reader
+[submodule "low_level_prog/assembly-io-library"]
+	path = low_level_prog/assembly-io-library
+	url = https://github.com/poma12390/assembly-io-library
+[submodule "low_level_prog/assembly-dictionary"]
+	path = low_level_prog/assembly-dictionary
+	url = https://github.com/poma12390/assembly-dictionary
+[submodule "low_level_prog/C-image-rotation"]
+	path = low_level_prog/C-image-rotation
+	url = https://github.com/poma12390/C-image-rotation
+[submodule "low_level_prog/C-memory-allocator"]
+	path = low_level_prog/C-memory-allocator
+	url = https://github.com/poma12390/C-memory-allocator
