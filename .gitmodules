@@ -19,3 +19,6 @@
 [submodule "web/web_lab4"]
 	path = web/web_lab4
 	url = https://github.com/poma12390/Spring_React-lab
+[submodule "VSS/lab1"]
+	path = VSS/lab1
+	url = https://github.com/poma12390/C-pe-file-reader
