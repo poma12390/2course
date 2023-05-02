@@ -1,8 +1,9 @@
 import cv2
-from keras.models import load_model
 import numpy as np
+from keras.models import load_model
 
 model = load_model('mnist_cnn_model.h5')
+
 
 def draw_rectangle(frame, start_point, end_point):
     color = (0, 0, 255)
@@ -23,18 +24,18 @@ def process(frame, start_point, end_point):
     v_l = 50
     blue_upper = np.array([115 + h_sensivity, s_h, v_h])
     blue_lower = np.array([115 - h_sensivity, s_l, v_l])
-    red_lower1=np.array([0, s_l, v_l])
+    red_lower1 = np.array([0, s_l, v_l])
     red_lower2 = np.array([170, s_l, v_l])
-    red_upper1=np.array([15, s_h, v_h])
+    red_upper1 = np.array([15, s_h, v_h])
     red_upper2 = np.array([180, s_h, v_h])
     green_lower = np.array([42, s_l, v_l])
     green_upper = np.array([72, s_h, v_h])
     mask_frame = hsv_frame[start_point[1]:end_point[1] + 1, start_point[0]:end_point[0] + 1]
-    mask_red=cv2.inRange(mask_frame, red_lower1, red_upper1)+cv2.inRange(mask_frame, red_lower2, red_upper2)
+    mask_red = cv2.inRange(mask_frame, red_lower1, red_upper1) + cv2.inRange(mask_frame, red_lower2, red_upper2)
     mask_blue = cv2.inRange(mask_frame, blue_lower, blue_upper)
     mask_green = cv2.inRange(mask_frame, green_lower, green_upper)
     red_rate = np.count_nonzero(mask_red) / ((end_point[0] - start_point[0]) * (end_point[1] - start_point[1]))
-    green_rate=np.count_nonzero(mask_green) / ((end_point[0] - start_point[0]) * (end_point[1] - start_point[1]))
+    green_rate = np.count_nonzero(mask_green) / ((end_point[0] - start_point[0]) * (end_point[1] - start_point[1]))
     blue_rate = np.count_nonzero(mask_blue) / ((end_point[0] - start_point[0]) * (end_point[1] - start_point[1]))
 
     cropped_frame = frame[start_point[1]:end_point[1], start_point[0]:end_point[0]]
@@ -46,20 +47,21 @@ def process(frame, start_point, end_point):
     predicted_class = np.argmax(prediction)
     cv2.putText(frame, str(predicted_class), (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
-
     org = end_point
     font = cv2.FONT_HERSHEY_SIMPLEX
     fontScale = 0.7
-    text1 = cv2.putText(rect1, str(red_rate*255) + ' '+ str(green_rate*255)+ ' ' + str(blue_rate*255), [21, 50], font, 0.8, [blue_rate*255, green_rate*255, red_rate*230], 2, cv2.LINE_AA)
+    text1 = cv2.putText(rect1, str(red_rate * 255) + ' ' + str(green_rate * 255) + ' ' + str(blue_rate * 255), [21, 50],
+                        font, 0.8, [blue_rate * 255, green_rate * 255, red_rate * 230], 2, cv2.LINE_AA)
     if red_rate > 0.9:
         text = cv2.putText(rect, ' red ', org, font, fontScale, color, thickness, cv2.LINE_AA)
-    elif green_rate>0.9:
+    elif green_rate > 0.9:
         text = cv2.putText(rect, ' green ', org, font, fontScale, color, thickness, cv2.LINE_AA)
-    elif blue_rate>0.9:
+    elif blue_rate > 0.9:
         text = cv2.putText(rect, ' blue ', org, font, fontScale, color, thickness, cv2.LINE_AA)
     else:
         text = cv2.putText(rect, ' rainbow ', org, font, fontScale, color, thickness, cv2.LINE_AA)
     return rect, resized
+
 
 def mouse_callback(event, x, y, flags, param):
     global start_point, end_point, dragging, resizing
@@ -67,24 +69,30 @@ def mouse_callback(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDOWN:
         dragging = True
         start_point = (x, y)
-        end_point=(x+1, y+1)
-        #end_point = (start_point[0]+100, start_point[1]+100)
+        end_point = (x + 1, y + 1)
+        # end_point = (start_point[0]+100, start_point[1]+100)
 
     elif event == cv2.EVENT_MOUSEMOVE:
         if dragging:
-            #end_point = (start_point[0] + 100, start_point[1] + 100)
+            # end_point = (start_point[0] + 100, start_point[1] + 100)
             end_point = (x + 1, y + 1)
     elif event == cv2.EVENT_LBUTTONUP:
         dragging = False
-        #end_point = (start_point[0]+100, start_point[1]+100)
+        # end_point = (start_point[0]+100, start_point[1]+100)
         end_point = (x + 1, y + 1)
+
+    if end_point[0] <= start_point[0] + 20:
+        end_point = (start_point[0] + 20, end_point[1])
+    if end_point[1] <= start_point[1] + 20:
+        end_point = (end_point[0], start_point[1]+20)
+
 
 
 # Open Default Camera
 cap = cv2.VideoCapture(0)
 rect_size = 100
 cv2.namedWindow('Cam')
-cv2.namedWindow('Resized')
+# cv2.namedWindow('Resized')
 cv2.setMouseCallback('Cam', mouse_callback)
 dragging = False
 resizing = False
@@ -101,7 +109,7 @@ while cap.isOpened():
     processed, resized = process(frame, start_point, end_point)
 
     cv2.imshow('Cam', processed)
-    cv2.imshow('Resized', resized)
+    # cv2.imshow('Resized', resized)
 
     # Move the rectangle based on arrow keys
     k = cv2.waitKey(1) & 0xFFF

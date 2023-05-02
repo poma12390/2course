@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Lab3 - Start page</title>
+    </h:head>
+
+    <h:body>
+<!--        <meta http-equiv="refresh" content="1; URL="/>-->
+        <h1 class="main__title">Лабораторная работа #3, вариант 21</h1>
+
+            <h2> Time is <span id="time"> </span></h2>
+
+        <h:button outcome="main" style="width: 150px" styleClass="big-btn" value="Начать!"/>
+        <h:outputScript name="timer.js" library="js"/>
+        <ui:insert name="js"/>
+    </h:body>
+    <!-- Or we can use JS to change date and time:
+    <ui:define name="js">
+        <h:outputScript name="js/index.js"/>
+    </ui:define>
+    -->
+
+</html>

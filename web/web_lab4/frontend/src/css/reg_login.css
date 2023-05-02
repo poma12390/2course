@@ -1,0 +1,61 @@
+body {
+    background: #4d4d4d;
+    overflow: paged-x;
+}
+
+.container {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.login-window, .registration-window {
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+.welcome {
+    text-align: center;
+}
+.login-label {
+    font-weight: bold;
+}
+.login-input {
+    display: block;
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 1em;
+}
+button {
+    cursor: pointer;
+    background: #00A885;
+    width: 100%;
+    border: 0;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 20px;
+    -webkit-transition: 0.3s linear;
+    transition: 0.3s linear;
+}
+.registration-suggest {
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+}
+.question-text {
+    margin: 0 0 10px;
+}
+.hidden {
+    display: none;
+}
+
+.register {
+    margin-top: 1em;
+}

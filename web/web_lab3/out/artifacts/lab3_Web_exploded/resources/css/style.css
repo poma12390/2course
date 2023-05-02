@@ -1,0 +1,176 @@
+#canvas {
+    height: 350px;
+
+}
+
+
+.input_buttons {
+
+    border-radius: 100px;
+}
+
+
+.input_buttons {
+    border-radius: 10px;
+}
+
+
+body {
+    background-image: url("/resources/space.jpg");
+    background-size: 100%;
+}
+
+table {
+
+
+    table-layout: fixed;
+    margin-bottom: 2%;
+    background-color: #F39C12;
+    width: auto;
+}
+
+th {
+    font-weight: bold;
+    padding: 0.15%;
+    background: #FFBB97;
+    border: 1px solid #dddddd;
+}
+
+td {
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background: #F8C471;
+}
+
+tbody tr:nth-child(even) {
+    background: #F5B041;
+}
+
+
+h1 {
+    margin: auto;
+    background-color: yellow;
+    border: 1px solid black;
+    font: 33px sans-serif;
+}
+
+div {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+.table {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proga {
+    border: 5mm ridge rgba(250, 150, 50);
+}
+
+[data-tooltip]:active {
+    content: attr(data-tooltip); /* Выводим текст */
+}
+
+[type='button']:not([name='X']) {
+    display: flex;
+    margin: 1%;
+    height: 28px;
+    border: solid black;
+    width: 46px;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 16% 95% 25% 95%/95% 16% 92% 5%;
+    transform: rotate(-2deg);
+}
+
+.main-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #FFDEAD;
+
+}
+
+.form__y-input, .form__row {
+    padding-bottom: 3px;
+    text-align: left;
+}
+
+.input_buttons {
+    text-align: left;
+
+}
+
+.rez {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+div > #canvas {
+    background-color: #FFBB97;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-bottom: solid #D2691E;
+}
+
+.rez {
+    float: left;
+
+}
+
+.input_table {
+    display: flex;
+    flex-direction: row;
+    width: 550px;
+    margin-left: auto;
+    margin-right: 100px;
+
+}
+
+/* ToolTip classses */
+.tooltip {
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    margin-left: 89px;
+    width: 190px;
+    visibility: hidden;
+    background-color: #F1C40F;
+    border-radius: 4px;
+    border: 1px solid #aeaeae;
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+    margin-top: 13px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    font-size: 14px;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 5%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #aeaeae transparent transparent;
+}
+
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

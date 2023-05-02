@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet name="style.css" library="css" />
+    <title>Lab3 - Start page</title>
+</h:head>
+<h:body>
+    <div class="table">
+        <div class="proga">
+            <div class="header">
+                <h1>Кочнев Роман P32081 Вариант 4621
+                </h1>
+            </div>
+            <div class="main-table">
+                <canvas id="canvas"></canvas>
+                <div class="input_table">
+<!--                    <%-->
+<!--                    Result result1 = new Result(0, 0, 0, "0", 0, false);-->
+<!--                    if (results.size() > 0) {-->
+<!--                    result1 = results.get(results.size() - 1);-->
+<!--                    }-->
+<!--                    %>-->
+                    <div class="rez">
+
+                        <label id="x_value">X="#{result1.getX()}"
+                        </label>
+                        <label id="y_value"> Y="#{result1.getX()}"
+                        </label>
+                        <label id="r_value">R="#{result1.getX()}"
+                        </label>
+                        Ввод параметров
+
+                    </div>
+                    <div class="inputters">
+                    <div class="form__row">
+                        <input type="radio" id="radioButton-2" value="-2" name="x"
+                               onclick="set_X_value('radioButton-2')"/>
+                        <label for="radioButton-2">-2</label>
+                        <input type="radio" id="radioButton-1.5" value="-1.5" name="x"
+                               onclick="set_X_value('radioButton-1.5')"/>
+                        <label for="radioButton-1.5">-1.5</label>
+                        <input type="radio" id="radioButton-1" value="-1" name="x"
+                               onclick="set_X_value('radioButton-1')"/>
+                        <label for="radioButton-1">-1</label>
+                        <input type="radio" id="radioButton-0.5" value="-0.5" name="x"
+                               onclick="set_X_value('radioButton-0.5')"/>
+                        <label for="radioButton-0.5">-0.5</label>
+                        <input type="radio" id="radioButton0" value="0" name="x"
+                               onclick="set_X_value('radioButton0')"/>
+                        <label for="radioButton0">0</label>
+                        <input type="radio" id="radioButton0.5" value="0.5" name="x"
+                               onclick="set_X_value('radioButton0.5')"/>
+                        <label for="radioButton0.5">0.5</label>
+                        <input type="radio" id="radioButton1" value="1" name="x"
+                               onclick="set_X_value('radioButton1')"/>
+                        <label for="radioButton1">1</label>
+                        <input type="radio" id="radioButton1.5" value="1.5" name="x"
+                               onclick="set_X_value('radioButton1.5')"/>
+                        <label for="radioButton1.5">1.5</label>
+                        <input type="radio" id="radioButton2" value="2" name="x"
+                               onclick="set_X_value('radioButton2')"/>
+                        <label for="radioButton2">2</label>
+                    </div>
+                    <div class="inputs">
+                        <div class="form__y-input">
+                            <div class="tooltip">
+                                <span class="tooltiptext">
+                                    Введите число в интервале [-3;5]
+                                </span>
+                                <label for="yParam"></label><input type="text" id="yParam" name="y"
+                                                                   placeholder="Введите Y"
+                                                                   data-tooltip="Введите число в интервале [-3;5]"/>
+                            </div>
+
+                        </div>
+
+
+<!--                        <div class="form__row">-->
+<!--                            <button class="form__x-btn" type="button" value="1" id="b1" name="X" onclick="set_R_value(id)">-->
+<!--                                1-->
+<!--                            </button>-->
+<!--                            <button class="form__x-btn" type="button" value="1.5" id="b1_5" name="X"-->
+<!--                                    onclick="set_R_value(id)">1.5-->
+<!--                            </button>-->
+<!--                            <button class="form__x-btn" type="button" value="2" id="b2" name="X" onclick="set_R_value(id)">-->
+<!--                                2-->
+<!--                            </button>-->
+<!--                            <button class="form__x-btn" type="button" value="2.5" id="b2_5" name="X"-->
+<!--                                    onclick="set_R_value(id)">2.5-->
+<!--                            </button>-->
+<!--                            <button class="form__x-btn" type="button" value="3" id="b3" name="X" onclick="set_R_value(id)">-->
+<!--                                3-->
+<!--                            </button>-->
+<!--                        </div>-->
+                        <div class="form__row">
+                            <input type="checkbox" class="form__x-btn" value="1" id="b1" name="r" onclick="set_R_value(id)"/>
+                            <input type="checkbox" class="form__x-btn" value="1.5" id="b1_5" name="r" onclick="set_R_value(id)"/>
+                            <input type="checkbox" class="form__x-btn" value="2" id="b2" name="r" onclick="set_R_value(id)"/>
+                            <input type="checkbox" class="form__x-btn" value="2.5" id="b2_5" name="r" onclick="set_R_value(id)"/>
+                            <input type="checkbox" class="form__x-btn" value="3" id="b3" name="r" onclick="set_R_value(id)"/>
+                        </div>
+                    </div>
+                        <div class="divi">
+                            <h:form class="form" styleClass="form">
+                                <input id="X_rez" type="hidden" name="x" value="#{result1.getX()}"/>
+                                <input id="Y_rez" type="hidden" name="y" value="#{result1.getX()}"/>
+                                <input id="R_rez" type="hidden" name="r" value="#{result1.getX()}"/>
+
+                                <input type="submit" id = "subButton" value="Тык"/>
+                                <input type="submit" id = "clearButton" value="очистить"/>
+                                <div class="form__row form__btn-row">
+<!--                                    <p:commandButton id="subButton" styleClass="big-btn" type="submit" value="Отправить"-->
+<!--                                                     update="results-table"/>-->
+<!--                                    <p:commandButton id="clearBtn" styleClass="big-btn" value="Очистить"-->
+<!--                                                     immediate="true" update="results-table"/>-->
+                                </div>
+                            </h:form>
+
+<!--                            <%&#45;&#45;                                <button type="button" id="input" class="input_buttons" onclick="chek_input()">Тык&#45;&#45;%>-->
+<!--                            <%&#45;&#45;                                </button>&#45;&#45;%>-->
+<!--                            <form class="form" action="${pageContext.request.contextPath}/process" method="POST">-->
+<!--                                <input type="submit" value="clear" onclick="deleteAllCookies()" id="input1"/>-->
+<!--                            </form>-->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="foot">
+                    <table width="100%" id="result-table" class="result-table">
+                        <thead>
+                        <tr>
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>R</th>
+                            <th>Current time</th>
+                            <th>Execution time (ms)</th>
+                            <th>Hit detect</th>
+                        </tr>
+                        </thead>
+<!--                        <tbody>-->
+<!--                        <%-->
+<!--                        //                    if(results != null && results.size() > 0)-->
+<!--                        //                    System.out.println(results.get(0).getExecutionTime());-->
+<!--                        for (int i = 0; i < results.size(); i++) {-->
+<!--                        Result result = results.get(i);-->
+<!--                        %>-->
+<!--                        <tr>-->
+<!--                            <td><%=result.getX()%>-->
+<!--                            </td>-->
+<!--                            <td><%=result.getY()%>-->
+<!--                            </td>-->
+<!--                            <td><%=result.getR()%>-->
+<!--                            </td>-->
+<!--                            <td><%=result.getCurrTime()%>-->
+<!--                            </td>-->
+<!--                            <td><%=result.getExecutionTime()%>-->
+<!--                            </td>-->
+<!--                            <td><%=result.getHit()%>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <%-->
+<!--                        }-->
+<!--                        ;-->
+<!--                        %>-->
+<!--                        </tbody>-->
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <h:outputScript name="draw.js" library="js"/>
+    <h:outputScript name="setters.js" library="js"/>
+
+    <ui:insert name="js"/>
+    </h:body>
+
+
+</html>

@@ -1,0 +1,65 @@
+.input-table {
+
+    font-size: 20px;
+}
+
+.input-table td {
+    width: 60px;
+    height: 40px;
+}
+.y {
+    height: 2em;
+}
+@media (max-width: 715px) {
+    .input-table {
+        margin: auto;
+    }
+}
+
+@media (max-width: 715px){
+    .y {
+        margin-left: 35%;
+    }
+}
+
+.submit-button {
+    margin-top: 20px;
+    margin-right: 30px;
+    border: 2px solid black;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+.submit-button:hover, .r-button:hover {
+    background: black;
+    color: white;
+}
+
+.submit-button:hover:disabled {
+    background: #d7d7d7;
+    color: grey;
+}
+
+@media (max-width: 615px) {
+    .submit-button {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
+    }
+}
+
+.submit-button:hover, .r-button:hover {
+    background: black;
+    color: white;
+}
+
+.submit-button:hover:disabled {
+    background: #d7d7d7;
+    color: grey;
+}

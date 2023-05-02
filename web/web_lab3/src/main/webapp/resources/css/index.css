@@ -1,0 +1,35 @@
+h1 {
+    margin: auto;
+    background-color: yellow;
+    border: 1px solid black;
+    font: 33px sans-serif;
+}
+
+div {
+    text-align: center;
+}
+
+body{
+
+    background-image: url("https://rg.ru/uploads/images/187/13/91/iStock-1012400706_d_850.jpg");
+    background-size: 100%;
+}
+
+#main{
+    background-color: #FFBB97;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+[type='button']:not([name='X']) {
+    height: 28px;
+    border: solid black;
+    width: 46px;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 16% 95% 25% 95%/95% 16% 92% 5%;
+    transform: rotate(-2deg);
+
+}
+
+

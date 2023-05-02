@@ -1,0 +1,29 @@
+.header {
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+.title-container {
+    display: inline-block;
+    margin-left: 16px;
+}
+
+.pointify-author {
+    font-weight: normal;
+}
+.se-logo {
+    float: right;
+    margin-top: 4px;
+    margin-right: 4px;
+}
+.author, .author:visited {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.author:hover {
+    color: red;
+    text-decoration: underline;
+}
+
