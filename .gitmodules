@@ -19,6 +19,6 @@
 [submodule "low_level_prog/C-memory-allocator"]
 	path = low_level_prog/C-memory-allocator
 	url = https://github.com/poma12390/C-memory-allocator
-[submodule "VSS/Timer_STM32"]
-	path = VSS/Timer_STM32
+[submodule "VSS/lab2"]
+	path = VSS/lab2
 	url = https://github.com/poma12390/Timer_STM32
