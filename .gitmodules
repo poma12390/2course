@@ -1,0 +1,3 @@
+[submodule "prog_lang"]
+	path = prog_lang
+	url = https://github.com/poma12390/assembly-io-library
