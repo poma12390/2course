@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "file_worker.h": "c",
+        "random": "c"
+    }
+}

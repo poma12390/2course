@@ -1,0 +1,103 @@
+Лабораторная работа\+: Чтение PE файла\hypertarget{md_README_autotoc_md0}{}\doxysection{Подготовка}\label{md_README_autotoc_md0}
+
+\begin{DoxyItemize}
+\item Прочитайте документацию по формату PE файла\+: \href{https://learn.microsoft.com/en-us/windows/win32/debug/pe-format}{\texttt{ https\+://learn.\+microsoft.\+com/en-\/us/windows/win32/debug/pe-\/format}}
+\item Ознакомьтесь с документацией к Doxygen\+: \href{https://www.doxygen.nl/manual/}{\texttt{ https\+://www.\+doxygen.\+nl/manual/}}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md1}{}\doxysection{P\+E файл}\label{md_README_autotoc_md1}
+PE файлы используются в ОС Windows для хранения объектных и исполняемых файлов. Для \char`\"{}совместимости\char`\"{} со старыми операционными системами PE файл начинается с корректной программы для M\+S-\/\+D\+OS, которая выводит сообщение \char`\"{}\+This program cannot be run in D\+O\+S mode.\char`\"{} Поэтому заголовок и данные в PE файле смещены от начала файла и эффективное смещение записано со смещением {\ttfamily 0x3c} от начала файла.
+
+По данному смещению записано magic value `PE\textbackslash{}0\textbackslash{}0', за которым следует заголовок и данные.
+
+Для чтения заголовков удобно использовать упакованные структуры. ~\newline
+\hypertarget{md_README_autotoc_md2}{}\doxysubsection{Упаковка данных}\label{md_README_autotoc_md2}
+Для упаковки стркутур следует ипользовать {\ttfamily \#pragma packed(...)} для компилятора Visual C и {\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+((packed))} для компиляторов gcc и clang, которые используются при автоматическом тестировании. Используя директивы препорцессора можно выяснить вид компилятора и написать портабельный код\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifdef \_\_clang\_\_}}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"Hello world from clang!\(\backslash\)n"});}
+\DoxyCodeLine{\textcolor{preprocessor}{\#elif defined \_\_GNUC\_\_}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"Hello world from gcc!\(\backslash\)n"});}
+\DoxyCodeLine{\textcolor{preprocessor}{\#elif defined \_MSC\_VER}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"Hello world from Visual C!\(\backslash\)n"});}
+\DoxyCodeLine{\textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"Hello world from somethig else!\(\backslash\)n"});}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md3}{}\doxysubsection{Смещения}\label{md_README_autotoc_md3}
+Обратите внимание на смещения в файле, некоторые из них абсолютные, а некоторые относительные. Можно вычислить и сохранить все абсолютные смещения для удобства работы с файлом\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct }PEFile}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  uint32\_t magic\_offset;}
+\DoxyCodeLine{  uint32\_t header\_offset;}
+\DoxyCodeLine{  uint32\_t optional\_header\_offset;}
+\DoxyCodeLine{  uint32\_t section\_header\_offset;}
+\DoxyCodeLine{  }
+\DoxyCodeLine{  }
+\DoxyCodeLine{  uint32\_t magic;}
+\DoxyCodeLine{  \textcolor{keyword}{struct }PEHeader header;}
+\DoxyCodeLine{  \textcolor{keyword}{struct }OptionalHeader optional\_header;}
+\DoxyCodeLine{  \textcolor{keyword}{struct }SectionHeader *section\_headers;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  ...}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md4}{}\doxysection{Задание}\label{md_README_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Необходимо реализовать чтение PE файла и вывод одной его секции в файл. Формат использования такой\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./section-\/extracter <source-\/pe-\/file> <section-\/name> <output-\/bin-\/image>}
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Код размещается в директории {\ttfamily solution/src}, заголовочные файлы ищутся в {\ttfamily solution/include}.
+\item Код должен быть портабельный и корректно работать с компиляторами gcc, clang, visual C.
+\item Код должен быть документирован для автоматической генерации документации в формате {\ttfamily doxygen}.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md5}{}\doxysubsection{Система сборки и тестирования}\label{md_README_autotoc_md5}
+Для сборки кода вам предоставлена система сборки на языке C\+Make, самим писать систему сборки не требуется.
+
+
+\begin{DoxyItemize}
+\item В зависимости от платформы и компилятора, система сборки поддерживает несколько конфигураций с динамическими анализаторами (санитайзерами). Санитайзеры могут дать подробную информацию о возможных и реальных ошибках в программе вместо классического сообщения о segmentation fault. Выбрать подходящую конфигурацию вы можете с помощью переменной {\ttfamily C\+M\+A\+K\+E\+\_\+\+B\+U\+I\+L\+D\+\_\+\+T\+Y\+PE}\+:
+\begin{DoxyItemize}
+\item {\ttfamily A\+San} --- \href{https://clang.llvm.org/docs/AddressSanitizer.html}{\texttt{ Address\+Sanitizer}}, набор проверок на некорректное использование адресов памяти. Примеры\+: use-\/after-\/free, double-\/free, выход за пределы стека, кучи или статического блока.
+\item {\ttfamily L\+San} --- \href{https://clang.llvm.org/docs/LeakSanitizer.html}{\texttt{ Leak\+Sanitizer}}, проверки на утечки памяти.
+\item {\ttfamily M\+San} --- \href{https://clang.llvm.org/docs/MemorySanitizer.html}{\texttt{ Memory\+Sanitizer}}, проверяет, что любая используемая ячейка памяти проинициализирована на момент чтения из нее.
+\item {\ttfamily U\+B\+San} --- \href{https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html}{\texttt{ Undefined\+Behaviour\+Sanitizer}}, набор базовых проверок на неопределенное поведение. Примеры\+: переполнение численного типа, null-\/pointer dereference.
+\end{DoxyItemize}
+\item Если в вашей системе имеется статический анализатор {\ttfamily clang-\/tidy}, он будет запущен во время компиляции программы. Список проверок описан в файле {\ttfamily clang-\/tidy-\/checks.\+txt}. Вы можете добавить свои проверки в конец этого файла.
+\item Директория {\ttfamily tester} содержит код и изображения для тестирования вашей программы. Для запуска тестов используется C\+Test.
+\item Поддержана интеграция системы сборки со средами разработки C\+Lion, Visual Studio и Visual Studio Code.
+\end{DoxyItemize}
+
+Чтобы система сборки работала на вашей системе, вам необходимо\+:\hypertarget{md_README_autotoc_md6}{}\doxysubsubsection{Linux и Mac\+OS}\label{md_README_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Компилятор ({\ttfamily gcc}/{\ttfamily clang}) и {\ttfamily cmake} (проверьте, что {\ttfamily cmake} версии 3.\+12 или выше)
+\item Если вы хотите использовать санитайзеры с G\+CC, установите {\ttfamily libasan}, {\ttfamily liblsan} и {\ttfamily libubsan} с помощью пакетного менеджера (названия могут отличаться).
+\item Если вы хотите использовать санитайзеры с Clang, на некоторых системах вам может понадобиться пакет {\ttfamily compiler-\/rt}.
+\item Если вы хотите пользоваться {\ttfamily clang-\/tidy}, установите {\ttfamily clang-\/tools-\/extra}.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md7}{}\doxysubsubsection{Windows}\label{md_README_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Какая-\/либо среда разработки (C\+Lion, Visual Studio, Visual Studio Code)
+\item Если вы хотите пользоваться {\ttfamily clang-\/tidy}, скачайте L\+L\+VM\+: \href{https://github.com/llvm/llvm-project/releases}{\texttt{ https\+://github.\+com/llvm/llvm-\/project/releases}} (найдите установщик win64 под одной из версий)
+\item Для VS Code требуется отдельно поставить Visual Studio (с сайта Microsoft) и C\+Make\+: \href{https://cmake.org/download/}{\texttt{ https\+://cmake.\+org/download/}}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md8}{}\doxysubsubsection{Инструкции по сборке и тестированию}\label{md_README_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Работа с терминалом
+\item C\+Lion
+\item Visual Studio
+\item Visual Studio Code 
+\end{DoxyItemize}

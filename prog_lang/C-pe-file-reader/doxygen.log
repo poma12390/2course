@@ -1,0 +1,13 @@
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:102: warning: Compound OptionalHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:130: warning: Compound PEFile is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:53: warning: Compound SectionHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:24: warning: Compound PEHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/src/main.c:9: warning: Member APP_NAME (macro definition) of file main.c is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:104: warning: Member magic (variable) of class OptionalHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:106: warning: Member major_linker_version (variable) of class OptionalHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:108: warning: Member minor_linker_version (variable) of class OptionalHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:110: warning: Member size_of_code (variable) of class OptionalHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:112: warning: Member size_of_initialied_data (variable) of class OptionalHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:114: warning: Member size_of_uninitialied_data (variable) of class OptionalHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:116: warning: Member adress_of_entry_point (variable) of class OptionalHeader is not documented.
+/mnt/c/Users/pomat/Documents/2course/vss/assignment-1-pe-file-reader/solution/include/pe.h:118: warning: Member base_of_code (variable) of class OptionalHeader is not documented.
