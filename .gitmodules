@@ -13,3 +13,9 @@
 [submodule "low_lowel_prog/C-pe-file-reader"]
 	path = low_lowel_prog/C-pe-file-reader
 	url = https://github.com/poma12390/C-pe-file-reader
+[submodule "web/JSF_lab"]
+	path = web/JSF_lab
+	url = https://github.com/poma12390/JSF_lab
+[submodule "web/Spring_React-lab"]
+	path = web/Spring_React-lab
+	url = https://github.com/poma12390/Spring_React-lab
