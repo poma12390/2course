@@ -22,3 +22,6 @@
 [submodule "VSS/lab2"]
 	path = VSS/lab2
 	url = https://github.com/poma12390/Timer_STM32
+[submodule "VSS/lab3"]
+	path = VSS/lab3
+	url = https://github.com/poma12390/OpenCvDigitsRecognizer
